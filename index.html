@@ -1,0 +1,655 @@
+<!doctype html>
+<!--
+  강승현 (Seunghyun Kang) — Personal & Engineering Portfolio
+-->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>강승현 (Seunghyun Kang) — Portfolio</title>
+  <meta name="description" content="컴퓨터공학 전공, 기본기와 데이터의 신뢰성을 중요하게 여기는 주니어 엔지니어 강승현의 소개 페이지입니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="강승현 (Seunghyun Kang)">
+  <meta property="og:description" content="기본기와 데이터의 정합성을 중요하게 여기는 주니어 개발자 강승현입니다.">
+  <meta name="theme-color" content="#0d0f12">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23111827'/%3E%3Cpath d='M30 65 L50 35 L70 65' stroke='%2338bdf8' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #0d0f12;
+      --card-bg: #14181f;
+      --card-border: #232936;
+      --card-hover: #1b222d;
+      --ink: #f1f5f9;
+      --muted: #94a3b8;
+      --ghost: #64748b;
+      --accent: #38bdf8;
+      --accent-subtle: #0284c7;
+      --success: #34d399;
+      --line: #1e2430;
+
+      --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+              "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+      --pad: clamp(20px, 5vw, 48px);
+      --max: 960px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--accent); color: #000; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin-inline: auto;
+      padding-inline: var(--pad);
+    }
+
+    /* Header */
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .nav a:hover { color: var(--ink); }
+
+    /* Hero */
+    .hero {
+      padding-block: clamp(48px, 8vw, 80px) clamp(32px, 5vw, 48px);
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+    }
+    .hero h1 .highlight {
+      background: linear-gradient(120deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--muted);
+      max-width: 52ch;
+      margin: 0 0 28px;
+      line-height: 1.7;
+    }
+
+    /* Persona Traits (내가 어떤 사람인지) */
+    .traits-section {
+      margin-bottom: 56px;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .traits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .trait-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .trait-num {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ghost);
+      margin-bottom: 10px;
+    }
+    .trait-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    .trait-card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      margin-bottom: 56px;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .section-header h2 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: 700;
+    }
+    .section-header span {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ghost);
+    }
+
+    /* Collapsible Project Card */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover {
+      border-color: #333f52;
+    }
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .project-top h3 {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 600;
+    }
+    .project-role-badge {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .project-desc {
+      font-size: 15px;
+      color: var(--muted);
+      margin: 0 0 20px;
+      line-height: 1.6;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 4px 10px;
+      background: #0d1117;
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      color: var(--ghost);
+    }
+
+    /* Toggle Button */
+    .toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #18202c;
+      border: 1px solid #2a3445;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .toggle-btn:hover {
+      background: #202b3b;
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .toggle-btn .arrow {
+      transition: transform 0.25s ease;
+      font-size: 10px;
+    }
+
+    /* Expandable Content Area (처음엔 숨김) */
+    .expand-content {
+      display: none;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--line);
+      animation: fadeIn 0.25s ease forwards;
+    }
+    .expand-content.open {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pipeline Diagram Inside Drawer */
+    .diagram-box {
+      background: #090c10;
+      border: 1px solid #1a2230;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .diagram-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ghost);
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .pipe-step {
+      background: #121720;
+      border: 1px solid #202836;
+      border-radius: 8px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+    .pipe-step.my-role {
+      border-color: var(--accent-subtle);
+      background: #0f1c2b;
+    }
+    .pipe-icon { font-size: 18px; margin-bottom: 4px; }
+    .pipe-name { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .pipe-sub { font-size: 10px; color: var(--muted); font-family: var(--mono); }
+    .pipe-badge {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 9px;
+      font-family: var(--mono);
+      padding: 1px 5px;
+      border-radius: 3px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+    }
+
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .detail-list li {
+      font-size: 14px;
+      color: var(--muted);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .detail-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1;
+      top: 1px;
+    }
+    .detail-list strong { color: var(--ink); }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      font-family: var(--mono);
+    }
+    .project-links a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Learning & Tech Stack */
+    .misc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .misc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .misc-card h3 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      color: var(--ink);
+    }
+    .misc-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 12px;
+      line-height: 1.6;
+    }
+    .misc-card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Contact Footer */
+    .contact-box {
+      border-top: 1px solid var(--line);
+      padding-block: 40px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+    }
+    .contact-links {
+      display: flex;
+      gap: 20px;
+      font-family: var(--mono);
+    }
+    .contact-links a { color: var(--accent); }
+    .contact-links a:hover { text-decoration: underline; }
+    .copyright { color: var(--ghost); font-size: 13px; }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="head">
+      <div class="brand">
+        강승현
+        <span style="font-size: 13px; color: var(--ghost); font-weight: normal;">/ Seunghyun Kang</span>
+      </div>
+      <nav class="nav">
+        <a href="#about">소개</a>
+        <a href="#projects">프로젝트</a>
+        <a href="https://github.com/tmdgus11" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO: 내가 어떤 사람인가 -->
+      <section class="hero" id="about">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          컴퓨터공학 전공 · 현대 AI Insight Campus 수강 중
+        </div>
+        <h1>
+          안녕하세요,<br>
+          <span class="highlight">기본기와 협업</span>을 중요하게 생각하는 강승현입니다.
+        </h1>
+        <p class="hero-lead">
+          복잡하게 꼬인 기교보다, 역할별로 명확하게 모듈화되어 동료가 읽고 이해하기 쉬운 코드를 좋아합니다.
+          탄탄한 기본기를 바탕으로 팀 내 소통의 비용을 줄이고, 함께 일하고 싶은 동료로 성장하고 있습니다.
+        </p>
+        <div style="margin-top: 24px;">
+          <a class="toggle-btn" href="https://github.com/tmdgus11" target="_blank" rel="noreferrer" style="text-decoration: none; padding: 10px 18px; font-size: 14px; background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: var(--accent);">
+            <span>GitHub @tmdgus11 프로필 상세 보기 ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- PERSONA TRAITS: 내가 일하는 방식 / 어떤 사람인가 -->
+      <section class="traits-section">
+        <div class="section-label">Core Values</div>
+        <div class="traits-grid">
+          <div class="trait-card">
+            <div class="trait-num">01</div>
+            <h3>가독성과 모듈화</h3>
+            <p>혼자만 알아보는 복잡한 코드 대신, 역할을 명확히 나누고 깔끔하게 모듈화하여 동료가 한눈에 읽고 유지보수하기 편한 코드를 지향합니다.</p>
+          </div>
+          <div class="trait-card">
+            <div class="trait-num">02</div>
+            <h3>투명한 소통과 협업</h3>
+            <p>개발은 팀으로 완성된다고 믿습니다. 모르는 부분은 솔직하게 공유하고, 작업 과정과 이슈를 투명하게 소통하여 팀의 커뮤니케이션 비용을 줄입니다.</p>
+          </div>
+          <div class="trait-card">
+            <div class="trait-num">03</div>
+            <h3>데이터 정합성과 기본기</h3>
+            <p>화려한 모델 유행보다 데이터 전처리의 정합성을 먼저 챙기며, 모델 추론에서 멈추지 않고 시스템 끝까지 완성하는 기본기를 지킵니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS: 깔끔하게 보고, 궁금하면 펼쳐보기 -->
+      <section class="projects-section" id="projects">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <span>궁금한 프로젝트를 눌러서 세부 내용을 확인하세요</span>
+        </div>
+
+        <!-- VOICEFRONT119 CARD -->
+        <div class="project-card">
+          <div class="project-top">
+            <div>
+              <h3>VoiceFront119</h3>
+              <div style="font-size: 13px; color: var(--ghost); margin-top: 4px;">구음장애 음성인식 & 119 긴급 상황 분류 서비스 (팀 프로젝트)</div>
+            </div>
+            <span class="project-role-badge">데이터 전처리 · 긴급도 분류 적용 · UI 연동</span>
+          </div>
+
+          <p class="project-desc">
+            발음이 부정확한 구음장애 환자의 119 신고 음성을 인식하고, 상황별 긴급도를 신속히 분류하여 상황실 요원의 빠른 대처를 돕는 구조 지원 시스템입니다.
+          </p>
+
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Kc-ELECTRA</span>
+            <span class="tag">Whisper</span>
+            <span class="tag">JavaFX</span>
+            <span class="tag">Data Preprocessing</span>
+          </div>
+
+          <!-- 눌러서 열고 닫는 토글 버튼 -->
+          <button class="toggle-btn" id="toggleVoiceBtn" onclick="toggleDetails('voiceDetails', 'toggleVoiceBtn')">
+            <span>시스템 파이프라인 및 세부 역할 보기</span>
+            <span class="arrow">▼</span>
+          </button>
+
+          <!-- 궁금하면 열리는 상세 영역 -->
+          <div class="expand-content" id="voiceDetails">
+            <div class="diagram-box">
+              <div class="diagram-title">System Pipeline & My Role</div>
+              <div class="pipeline">
+                <div class="pipe-step">
+                  <div class="pipe-icon">🎙️</div>
+                  <div class="pipe-name">음성 입력 & STT</div>
+                  <div class="pipe-sub">Whisper 음성인식</div>
+                </div>
+                <div class="pipe-step my-role">
+                  <div class="pipe-icon">⚙️</div>
+                  <div class="pipe-name">데이터 전처리</div>
+                  <div class="pipe-sub">노이즈 필터링 · 정제</div>
+                  <span class="pipe-badge">담당</span>
+                </div>
+                <div class="pipe-step my-role">
+                  <div class="pipe-icon">🤖</div>
+                  <div class="pipe-name">긴급도 분류 모델</div>
+                  <div class="pipe-sub">Kc-ELECTRA 적용</div>
+                  <span class="pipe-badge">담당</span>
+                </div>
+                <div class="pipe-step my-role">
+                  <div class="pipe-icon">📊</div>
+                  <div class="pipe-name">성능 평가</div>
+                  <div class="pipe-sub">분류 오차 · 지표 확인</div>
+                  <span class="pipe-badge">담당</span>
+                </div>
+                <div class="pipe-step my-role">
+                  <div class="pipe-icon">🖥️</div>
+                  <div class="pipe-name">JavaFX UI</div>
+                  <div class="pipe-sub">긴급 접수 화면 연동</div>
+                  <span class="pipe-badge">담당</span>
+                </div>
+              </div>
+            </div>
+
+            <ul class="detail-list">
+              <li>
+                <strong>긴급도 분류 모델(Kc-ELECTRA) 적용:</strong> 신고 내용 텍스트에서 긴급 상황 여부를 가려내기 위해 사전학습된 Kc-ELECTRA 모델을 가져와 프로젝트 목적에 맞게 파인튜닝하고 분류기로 연동했습니다.
+              </li>
+              <li>
+                <strong>음성 데이터 전처리 및 정제:</strong> 구음장애 음성 데이터셋의 노이즈를 필터링하고, 모델 학습과 평가가 안정적으로 이루어지도록 전처리 파이프라인을 구축했습니다.
+              </li>
+              <li>
+                <strong>JavaFX 데스크톱 관제 UI 구현:</strong> 모델의 예측 결과를 상황실 요원이 직관적으로 모니터링할 수 있도록 자바 기반 클라이언트 화면을 제작하고 연동을 마쳤습니다.
+              </li>
+            </ul>
+
+            <div class="project-links">
+              <a href="https://github.com/tmdgus11/VoiceFront119_AI" target="_blank" rel="noreferrer">AI 파이프라인 저장소 ↗</a>
+              <a href="https://github.com/tmdgus11/VoiceFront119_JavaFX" target="_blank" rel="noreferrer">JavaFX 클라이언트 저장소 ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURRENT STUDY CARD -->
+        <div class="project-card">
+          <div class="project-top">
+            <div>
+              <h3>현대 AI Insight Campus 실습</h3>
+              <div style="font-size: 13px; color: var(--ghost); margin-top: 4px;">AI 엔지니어 양성 과정 (2026.10 ~ 진행 중)</div>
+            </div>
+            <span class="project-role-badge" style="color: var(--success); border-color: rgba(52, 211, 153, 0.2); background: rgba(52, 211, 153, 0.08);">In Progress</span>
+          </div>
+
+          <p class="project-desc">
+            파이썬 핵심 모듈화와 데이터 처리를 바탕으로, AI 통계학 및 회귀 분석·인과 추론을 집중 학습하고 있습니다. 설비 운영 데이터를 활용한 이상 탐지(Anomaly Detection) 및 예측 모델링 프로젝트를 준비 중입니다.
+          </p>
+
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">AI 통계학</span>
+            <span class="tag">회귀 분석 & 인과 추론</span>
+            <span class="tag">Advanced ML</span>
+            <span class="tag">이상 탐지</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS & ETHOS -->
+      <section class="misc-grid">
+        <div class="misc-card">
+          <h3>기술 스택 (주로 사용하는 도구)</h3>
+          <ul>
+            <li><strong>Core:</strong> Python, SQL</li>
+            <li><strong>AI / ML:</strong> PyTorch, Scikit-Learn, Hugging Face</li>
+            <li><strong>Tool & Env:</strong> Git, GitHub, VS Code, Jupyter Notebook, JavaFX</li>
+          </ul>
+        </div>
+        <div class="misc-card">
+          <h3>현재 깊이 파고 있는 주제</h3>
+          <p>
+            <strong>AI 통계학 & 회귀 분석·인과 추론:</strong> 단순 모델 복사 대신 데이터의 확률 분포와 인과 관계를 통계적으로 바르게 해석하는 기본기를 다지고 있으며, 12월 예정된 산업 설비 이상 탐지(Anomaly Detection) 모델링 프로젝트를 준비하고 있습니다.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="contact-box">
+      <div>
+        <div style="font-weight: 600; margin-bottom: 4px;">강승현 (Seunghyun Kang)</div>
+        <div class="copyright">기본기 탄탄한 신입 AI 엔지니어를 찾는 팀의 연락을 환영합니다.</div>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/tmdgus11" target="_blank" rel="noreferrer">GitHub @tmdgus11</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function toggleDetails(contentId, btnId) {
+      const content = document.getElementById(contentId);
+      const btn = document.getElementById(btnId);
+      const arrow = btn.querySelector('.arrow');
+      
+      const isOpen = content.classList.contains('open');
+      if (isOpen) {
+        content.classList.remove('open');
+        arrow.style.transform = 'rotate(0deg)';
+        btn.querySelector('span:first-child').textContent = '시스템 파이프라인 및 세부 역할 보기';
+      } else {
+        content.classList.add('open');
+        arrow.style.transform = 'rotate(180deg)';
+        btn.querySelector('span:first-child').textContent = '세부 내용 닫기';
+      }
+    }
+  </script>
+</body>
+</html>

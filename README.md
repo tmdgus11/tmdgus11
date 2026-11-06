@@ -2,7 +2,7 @@
 
 - 🎓 **Education**: 컴퓨터공학 전공
 - 📍 **Status**: 현대 AI 인사이트 부트캠프 (AI 엔지니어 과정)
-- 🌐 **Portfolio**: https://tmdgus11.github.io
+- 🌐 **Portfolio**: https://tmdgus11.github.io/tmdgus11/
 
 ---
 
